@@ -1,7 +1,7 @@
 #!/bin/sh
 #C compile
 
-echo "C compile"
+echo "C compiler"
 
 filename="$2"
 if [ "$1" == "compile" ];then
@@ -24,4 +24,31 @@ elif [ "$1" == "run" ];then
         else
                 echo "Wrong Run Filename!"
         fi
+elif [ "$1" == "build" ];then
+        #compile .c file
+        if [ -f "${filename}.c" ];then
+                gcc -Wall -std=c11 -g "${filename}.c" -o "$filename"
+                echo "complied"
+        elif [ -f "$filename" ];then
+                gcc -Wall -std=c11 -g "${filename}" -o "${filename%.c*}"
+                echo "compiled"
+        else
+                echo "Wrong Compile Filename!"
+        fi
+        #run the program
+        if [ -x "$filename" ];then
+                ./"$filename"
+                echo "done"
+        elif [ -x "${filename%.c*}" ];then
+                ./"${filename%.c*}"
+                echo "done"
+        else
+                echo "Wrong Run Filename!"
+        fi
+else
+        #use of this C compiler
+        echo "You can type 'compile FILENAME' to compile .c file."
+        echo "You can type 'run FILENAME' to run program."
+        echo "You can type 'build FILENAME' to compile .c file and then run it."
+        echo "It doesn't matter whether to type '.c' or not."
 fi
