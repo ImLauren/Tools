@@ -1,0 +1,27 @@
+#!/bin/sh
+#C compile
+
+echo "C compile"
+
+filename="$2"
+if [ "$1" == "compile" ];then
+        if [ -f "${filename}.c" ];then
+                gcc -Wall -std=c11 -g "${filename}.c" -o "$filename"
+                echo "complied"
+        elif [ -f "$filename" ];then
+                gcc -Wall -std=c11 -g "${filename}" -o "${filename%.c*}"
+                echo "compiled"
+        else
+                echo "Wrong Compile Filename!"
+        fi
+elif [ "$1" == "run" ];then
+        if [ -x "$filename" ];then
+                ./"$filename"
+                echo "done"
+        elif [ -x "${filename%.c*}" ];then
+                ./"${filename%.c*}"
+                echo "done"
+        else
+                echo "Wrong Run Filename!"
+        fi
+fi
