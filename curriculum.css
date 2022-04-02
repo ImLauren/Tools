@@ -1,0 +1,51 @@
+<style>
+  body {
+        font-family: sans-serif;
+        background-color: rgba(112, 145, 53, 0.1);
+  }
+
+  main {
+    display:grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 15px;
+    margin: 0 auto;
+  }
+
+  .unit {
+    background-color: rgba(0, 67, 79, 0.2);
+    grid-column: 12 span;
+  }
+
+  .unit b {
+    display: block;
+    background-color: rgb(0, 67, 79);
+    color: white;
+    padding: 5px;
+  }
+
+  .unit p {
+    padding: 5px;
+  }
+
+  .unit.y2-tb1.cp10, .unit.y2-tb2.cp10, .unit.y3-tb1.cp10  {
+    grid-column: 2 span;
+  }
+
+  .unit.y2-tb4 {
+    grid-column: 11 / 13;
+    grid-row: 3 / 5;
+  }
+
+  .unit.y3-tb1.cp15{
+    grid-column: 3 span;
+  }
+  
+  .unit.y1-tb1.cp20, .unit.y1-tb2.cp20, .unit.y2-tb1.cp20, .unit.y2-tb2.cp20, .unit.y3-tb2.cp20 {
+    grid-column: 4 span;
+  }
+
+  .unit.y3-tb2.cp40 {
+    grid-column: 8 span;
+  }
+
+</style>
