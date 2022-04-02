@@ -1,0 +1,78 @@
+<style>
+
+body {
+    font-family: "Open Sans", sans-serif;
+    margin: 0;
+}
+
+header {
+    background-color: #04443c;
+    color: white;
+    margin: 0;
+    padding: 10px;
+    padding-left: 50px;
+}
+
+@media (min-width:600px){
+  .container{
+      margin : 0 auto;
+      max-width: 960px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+  }
+
+  .card.featured {
+        grid-column: 2 span;
+        grid-row: 2 span;
+  }
+
+  .card {
+        grid-column: 1 span;
+  }
+}
+
+@media (min-width:400px) and (max-width: 600px){
+  .container{
+      margin : 0 auto;
+      max-width: 600px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+  }
+
+  .card.featured {
+        grid-column: 2 span;
+        grid-row: 2 span;
+  }
+
+  .card {
+        grid-column: 1 span;
+  }
+}
+
+.card {
+    background-color: #167f5f;
+    color: white;
+}
+
+.card-image {
+    max-width: 100%;
+    height: auto;
+}
+
+.card span.latin-name {
+    display: block;
+    font-style: italic;
+    padding: 10px;
+    padding-bottom: 0;
+}
+
+.card span.common-name {
+    display: block;
+    padding: 10px;
+    padding-top: 5px;
+    font-weight: bold;
+}
+
+</style>
