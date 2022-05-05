@@ -2,25 +2,22 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <title>List of Students</title>
+        <title>Student details</title>
     </head>
     <body>
-        <h1>List of Students</h1>
+        <h1>Student details</h1>
 
         <table border="1">
-                <thead>
-                        <tr><th>id</th><th>name</th></tr>
-                </thead>
 
-                <tbody th:each="student : ${students}">
-                        <tr>
-                        <td th:text="${student.getId}"></td>
-                        <td><a th:href="'/student/' + ${student.getName}" th:text="${student.getName}"></a></td>
+                <tr><td>Unit code</td><td>Unit name</td><td>Grade</td></tr>
 
-                        </tr>
-
-                </tbody>
+                <tr th:each="re : ${student.getGrades}">
+                <td><span th:text="${re.getFirst.code}"></span></td>
+                <td><span th:text="${re.getFirst.title}"></span></td>
+                <td><span th:text="${re.getSecond}"></span></td>
+                </tr>
         </table>
-
     </body>
 </html>
+
+
